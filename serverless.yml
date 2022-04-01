@@ -1,0 +1,21 @@
+org: coderspecial
+app: rankly
+service: rankly-lamda
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: prod
+
+functions:
+  rank:
+    handler: handler.rank
+    events:
+      # REST API endpoint (API Gateway v1)
+      - http:
+          # Path for this endpoint
+          path: rank
+          # HTTP method for this endpoint
+          method: get
